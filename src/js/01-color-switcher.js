@@ -5,6 +5,7 @@ const refs= {
     stopBtn : document.querySelector(`button[data-stop]`)
 }
 let intervalId = null
+refs.stopBtn.setAttribute('disabled', true);
 
 console.log(refs.startBtn)
 console.log(refs.stopBtn)
@@ -14,6 +15,7 @@ refs.stopBtn.addEventListener('click' , stopColorChange)
 
 function runColorChange(){
   refs.startBtn.setAttribute('disabled', true);
+  refs.stopBtn.removeAttribute('disabled', true);
   intervalId = setInterval(()=>{
         refs.background.style.backgroundColor = getRandomHexColor()
     }, 1000)
@@ -24,6 +26,7 @@ function stopColorChange(){
 
 clearInterval(intervalId)
 refs.startBtn.removeAttribute('disabled', true)
+refs.stopBtn.setAttribute('disabled', true);
 }
 
 function getRandomHexColor() {
