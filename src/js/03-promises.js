@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 const refs ={
   delay: document.querySelector('input[name=delay]'),
   step: document.querySelector('input[name=step]'),
@@ -27,11 +29,11 @@ refs.form.addEventListener('submit', (e) => {
     counter +=1
     createPromise( counter,delayCounter)
     .then(
-      value => { console.log(value)}
+      value => { Notiflix.Notify.success(value)}
     )
     .catch(
       error => {
-        console.log(error)
+        Notiflix.Notify.failure(error)
       }
     )
     delayCounter+= Number(infoObj.inputStep)
