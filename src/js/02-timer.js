@@ -52,9 +52,10 @@ function onBtnClick(){
 clearInterval(idInterval)
 Notiflix.Report.success(
   'Time is up',
-  '"Please refresh page for new count"',
+  '"Please choose date for new count"',
   'Okay',
   );
+refs.startBtn.setAttribute('disabled', true)
 refs.daysTimer.textContent = '00'
 refs.hoursTimer.textContent = '00'
 refs.minutesTimer.textContent = '00'
